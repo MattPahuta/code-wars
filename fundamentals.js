@@ -25,16 +25,15 @@ function bingo(ticket, win) {
   let miniWins = 0;
 
   // ** with forEach, includes, String, and fromCharCode (submitted)
-  // ticket.forEach(game => {
-  //   if (game[0].includes(String.fromCharCode(game[1]))) {
-  //     miniWins++;
-  //   }
-  // });
-  // return (miniWins >= win) ? 'Winner!' : 'Loser!';
+  ticket.forEach(game => {
+    if (game[0].includes(String.fromCharCode(game[1]))) {
+      miniWins++;
+    }
+  });
+  return (miniWins >= win) ? 'Winner!' : 'Loser!';
 
 
   // with nested for loops and charCodeAt method 
-
   for (let i = 0; i < ticket.length; i++) {
     for (let j = 0; j < ticket.length; j++) {
       console.log(ticket[i][0][j].charCodeAt())
