@@ -4,6 +4,29 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Spacify - 7 kyu
+/*
+Modify the spacify function so that it returns the given string with spaces inserted between each character.
+
+spacify("hello world") // returns "h e l l o   w o r l d"
+*/
+function spacify(str) {
+  // simply use split to make the str an array, then join array back together with a space:
+  return str.split('').join(' ');
+
+  // can also use the spread operator to create the array:
+  // return [...str].join(' ');
+
+  // can also go this route, using a for loop with a ternary to build the new string
+  // let result = ''
+  // for (let i = 0; i < str.length; i++) {
+  //   result = result + str[i] + (i === (str.length - 1) ? '' : ' ')
+  // }
+  // return result
+}
+
+
+
 // *** Array Leaders (Array series #3) - 7 kyu 
 /*
 Definition
