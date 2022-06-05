@@ -6,7 +6,7 @@
 
 // *** Nth Smallest Element - 7 kyu
 /*
-Task
+
 Given an array/list of integers, find the Nth smallest element in the array.
 
 Notes
