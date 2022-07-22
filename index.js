@@ -1,6 +1,35 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+// Find the unique number - 6 kyu
+/*
+  There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+  findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+  findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+*/
+function findUniq(arr) {
+  return arr.find(num => arr.indexOf(num) === arr.lastIndexOf(num))
+
+  // an alternative solution using sort() and pop() with a ternary
+  // arr.sort((a,b) => a - b);
+  // return arr[0] == arr[1] ? arr.pop() : arr[0]
+}
+
+
+// List Filtering - 7kyu
+/*
+  In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+  Examples:
+  filter_list([1,2,'a','b']) == [1,2]
+  filter_list([1,'a','b',0,15]) == [1,0,15]
+  filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
+*/
+function filter_list(arr) {
+  // Return a new array with the strings filtered out
+  return arr.filter((item) => typeof item === 'number')
+}
 
 // Get the Middle Character - 7kyu
 /*
@@ -61,9 +90,6 @@ function oddOrEven(array) {
  //  return array.reduce((a,b) => a + b, 0) % 2 ? 'odd' : 'even';
 }
 
-
-
-
 // *** Sum of two lowest positive integers - 7 kyu
 /*
   Create a function that returns the sum of the two lowest positive numbers of an integers array
@@ -77,4 +103,8 @@ function sumTwoSmallestNumbers(numbers) {
   return sortedNumbers[0] + sortedNumbers[1];
 }
 
+// *** MakeUpperCase - 8kyu
+// Write a function which converts the input string to uppercase.
+
+const makeUpperCase = str => str.toUpperCase();
 
