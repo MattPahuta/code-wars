@@ -24,11 +24,6 @@ your function should return Victoria, Puerto Rico.
 Notes:
 The input array will always be valid and formatted as in the example above.
 */
-var pythonList = [
-  { firstName: 'Mark', lastName: 'G.', country: 'Scotland', continent: 'Europe', age: 22, language: 'JavaScript' },
-  { firstName: 'Victoria', lastName: 'T.', country: 'Puerto Rico', continent: 'Americas', age: 30, language: 'Python' },
-  { firstName: 'Emma', lastName: 'B.', country: 'Norway', continent: 'Europe', age: 19, language: 'Clojure' }
-];
 
 function getFirstPython(list) {
   // ** using some and filter (submitted)
