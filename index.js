@@ -1,7 +1,30 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
-// Find the unique number - 6 kyu
+
+// *** Isograms - 7 kyu *** //
+/*
+  Implement a function that determines whether a string that contains only letters is an isogram.
+  Isogram is a word that has no repeating letters, consecutive of non-consecutive.
+  Assume empty string is an isogram.
+*/
+
+function isIsogram(str) {
+  str = str.toLowerCase ();
+  for (let i=0; i < str.length ; i++) {
+    for (let j= i + 1; j < str.length; j++) {
+      if (str[i] === str[j]) return false;
+    }
+  }
+  return true;
+}
+
+// *Examples:
+// "Dermatoglyphics" --> true
+// "aba" --> false
+// "moOse" --> false (ignore letter case)
+
+// *** Find the unique number - 6 kyu *** //
 /*
   There is an array with some numbers. All numbers are equal except for one. Try to find it!
 
@@ -17,7 +40,7 @@ function findUniq(arr) {
 }
 
 
-// List Filtering - 7kyu
+// **** List Filtering - 7kyu *** //
 /*
   In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
 
