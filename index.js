@@ -1,6 +1,50 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+// *** Shortest Word - 7 kyu *** //
+/* 
+  Givin a string of words, return the length of the shortest word(s)
+  String will never be empty, no need to account for different data types
+*/
+
+function findShort(str) {
+  // my initial solution:
+  // split str to array, transform to lengths with map, sort lengths with sort
+  const sortedStrArr = str.split(' ').map(word => word.length).sort((a,b) => a -b);
+  return sortedStrArr[0]; // return first element of sorted array
+
+  // a more concise implementation using Math.min and spread operator:
+  // return Math.min(...str.split(' ').map (str => str.length));
+}
+
+// *** Exes and Ohs - 7 kyu *** //
+/*
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+Examples:
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false
+*/
+function XO(str) {
+  // *** long form solution for step-by-step understanding:
+  str = str.toLowerCase(); // make the string lowercase
+  const strArr = str.split('') // split the string into an array
+  const xArr = strArr.filter(char => { // filter the 'x' chars, assign as xArr
+    return char === 'x';
+  });
+  const oArr = strArr.filter(char => { // filte the 'o' chars, assign as oArr
+    return char === 'o';
+  })
+  return xArr.length === oArr.length ? true : false; // compare array lengths
+
+
+  // *** A more consise implementation of above:
+  // str = str.toLowerCase().split('');
+  // return str.filter(x => x === 'x').length === str.filter(x => x === 'o').length;
+}
 
 // *** Isograms - 7 kyu *** //
 /*
