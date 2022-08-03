@@ -1,6 +1,17 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+// Two to One - 7 kyu
+/*
+ Take 2 strings which each include only letters from a to z, return a new sorted string, the longest possible, containing distinct letters, each taken only once, coming from string one and two.
+
+ Note: This is a poorly and unclear worded challenge description. 
+*/
+function longest(s1,s2) {
+  return Array.from(new Set(s1 + s2)).sort().join('');
+}
+
+
 // *** Shortest Word - 7 kyu *** //
 /* 
   Givin a string of words, return the length of the shortest word(s)
