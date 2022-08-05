@@ -1,6 +1,23 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+
+// *** Vowel Count - 7 kyu
+// Return the number of vowels in a given string
+function getCount(str) {
+  let vowelsCount = 0;
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  for (let char of str) {
+    for (let vowel of vowels) {
+      if (char === vowel) {
+        vowelsCount += 1;
+      }
+    }
+  }
+  return vowelsCount;
+}
+
+
 // Two to One - 7 kyu
 /*
  Take 2 strings which each include only letters from a to z, return a new sorted string, the longest possible, containing distinct letters, each taken only once, coming from string one and two.
