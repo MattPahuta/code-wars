@@ -1,6 +1,21 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+// Square(n) Sum - 8 kyu
+/*
+  Complete the squareSum function so that it squares each number passed into it and then sums the results together
+  Example: [1,2,2] => 9
+*/
+function squareSum(nums) {
+  return nums.reduce((sum, num) => sum + (num * num), 0);
+  // or, using forEach
+  // let sum = 0;
+  // nums.forEach(num => {
+  //   sum += num * num;
+  // })
+  // return sum;
+}
+
 
 // *** Vowel Count - 7 kyu
 // Return the number of vowels in a given string
