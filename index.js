@@ -1,6 +1,15 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+// *** Uppercase a string of words - 7 kyu
+function upperCaseAString(str) {
+  const strArr = str.split(' '); // split the string into an array of individual words
+  return strArr.map(word => { // use map to create a new array
+    return word[0].toUpperCase() + word.substring(1); // populate array with each first word capitalized, substring to append rest of word
+  }).join(" "); // join the array of capitalized words back into a string
+}
+
+
 // Square(n) Sum - 8 kyu
 /*
   Complete the squareSum function so that it squares each number passed into it and then sums the results together
