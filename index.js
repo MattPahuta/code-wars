@@ -1,6 +1,31 @@
 // *** Welcome to my Code Wars Challenges record *** //
 // *** All challenges completed using JavaScript *** //
 
+// *** Credit Card Mask - 7 kyu 
+/*
+  Write a function, maskify, which changes all but the last four characters into a "#"
+  Example:  ""
+*/
+function maskify(cc) {
+  return cc.slice(-4).padStart(cc.length, '#');
+}
+
+// *** doubleChar - 8 kyu
+/*
+
+*/
+
+// *** Ones and Zeros - 7 kyu
+/*
+
+*/
+
+// *** Mumbling - 7 kyu
+/*
+
+*/
+
+
 // *** Uppercase a string of words - 7 kyu
 function upperCaseAString(str) {
   const strArr = str.split(' '); // split the string into an array of individual words
@@ -10,7 +35,7 @@ function upperCaseAString(str) {
 }
 
 
-// Square(n) Sum - 8 kyu
+// *** Square(n) Sum - 8 kyu
 /*
   Complete the squareSum function so that it squares each number passed into it and then sums the results together
   Example: [1,2,2] => 9
@@ -42,7 +67,7 @@ function getCount(str) {
 }
 
 
-// Two to One - 7 kyu
+// *** Two to One - 7 kyu
 /*
  Take 2 strings which each include only letters from a to z, return a new sorted string, the longest possible, containing distinct letters, each taken only once, coming from string one and two.
 
