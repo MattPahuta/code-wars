@@ -3,6 +3,31 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Convert a string to an array - 8 kyu
+/*
+Write a function to split a string and convert it into an array of words.
+
+  Examples (Input ==> Output):
+  "Robin Singh" ==> ["Robin", "Singh"]
+
+  "I love arrays they are my favorite" ==> ["I", "love", "arrays", "they", "are", "my", "favorite"]
+*/
+
+function stringToArray(str) {
+  // simply use the split() method to split each word, returning an array
+  return str.split(' ');
+}
+
+// *** Array plus array - 8 kyu
+// get the sum of all elements in two arrays - all elements are integers
+function arrayPlusArray(arr1, arr2) {
+  // use spread to combine elements into one array, reduce method to addd up all the elements
+  return [...arr1, ...arr2].reduce((a,b) => a + b, 0);
+}
+
+arrayPlusArray([5,5,5], [3, 3, 3]); // => 24
+
+
 // *** Get the mean of an array - 8 kyu
 /*
   It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
