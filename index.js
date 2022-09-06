@@ -3,6 +3,85 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Stanton measure - 7 kyu
+/*
+  The Stanton measure of an array is computed as follows: count the number of occurences for value 1 in the array. Let this count be n. The Stanton measure is the number of times that n appears in the array.
+
+  Write a function which takes an integer array and returns its Stanton measure.
+
+  Examples
+  The Stanton measure of [1, 4, 3, 2, 1, 2, 3, 2] is 3, because 1 occurs 2 times in the array and 2 occurs 3 times.
+
+  The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times in the array and 3 occurs 1 time.
+*/
+function stantonMeasure(arr) {
+  const count = arr.filter(num => num === 1).length; // length of array of 1's
+  const stanton = arr.filter(num => num === count).length; // length of array of numOnes value
+  return stanton; // return stanton value
+
+  // *** more concise implementation w/recursive function: 
+  // const count = num => arr.filter(x => x === num).length;
+  // return count(count(1));
+}
+
+
+// *** Number of People in the Bus - 7 kyu
+/*
+  Accept a two-dimensional array (busStops), i.e. [ [10, 0], [4, 2], [7, 5] ]
+  first el of nested array = passengers getting on
+  second el of nested array = people getting off bus (at bus stop)
+  return number of people remaining on bus
+*/
+const numberOfPassenger = (busStops) => { 
+  let totalPassengers = 0;
+  for (let i = 0; i < busStops.length; i++) {
+    totalPassengers += busStops[i][0];
+    totalPassengers -= busStops[i][1];
+  }
+  return totalPassengers;
+
+  // using reduce
+  // return busStops.reduce((rem, [on, off]) => rem + on - off, 0);
+}
+
+
+
+// *** Get Planet Name by ID - 8 kyu
+/* *** Debugging
+  Function was not returning correct values
+*/
+
+function getPlanetName(id){
+  var name;
+  switch(id){
+    case 1:
+      name = 'Mercury'
+      break; // cases were missing break keyword
+    case 2:
+      name = 'Venus'
+      break;
+    case 3:
+      name = 'Earth'
+      break;
+    case 4:
+      name = 'Mars'
+      break;
+    case 5:
+      name = 'Jupiter'
+      break;
+    case 6:
+      name = 'Saturn'
+      break;
+    case 7:
+      name = 'Uranus'
+      break;
+    case 8:
+      name = 'Neptune'
+      break;
+  }
+  return name;
+}
+
 // *** Convert a string to an array - 8 kyu
 /*
 Write a function to split a string and convert it into an array of words.
