@@ -3,6 +3,103 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+
+
+
+// *** Sort array by string length - 7 kyu
+/*
+  Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+
+  For example:
+  ["Telescopes", "Glasses", "Eyes", "Monocles"] => ["Eyes", "Glasses", "Monocles", "Telescopes"]
+
+  All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+*/
+
+function sortByLength(array) {
+  // Ascending order => a.length - b.length
+  // Descending order => b.length - a.length
+  return array.sort((a,b) => a.length - b.length);
+}
+
+// *** Find the middle element - 7 kyu
+/*
+  As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+
+  The input to the function will be an array of three distinct numbers.
+
+  Examples:
+  gimme([2, 3, 1]) => 0
+  2 is the number that fits between 1 and 3 and the index of 2 in the input array is 0.
+  gimme([5, 10, 14]) => 1
+  10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
+
+*/
+function gimme(triplet) {
+  // find the high num value - remove from array
+  let highNum = Math.max(...triplet);
+  // find the low num value - remove from array
+  let lowNum = Math.min(...triplet);
+  // return remaining num
+  for (let i = 0; i < triplet.length; i++) {
+    if (triplet[i] !== highNum && triplet[i] !== lowNum) {
+      return i;
+    }
+  }
+
+  // more concise solution with indexOf and sort
+  // return triplet.indexOf(triplet.concat().sort(function(a, b) { return a - b })[1])
+  
+}
+
+
+// *** Find the stray number - 7 kyu 
+/*
+You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+Complete the method which accepts such an array, and returns that single different number.
+
+The input array will always be valid! (odd-length >= 3)
+
+Examples
+[1, 1, 2] ==> 2
+[17, 17, 3, 17, 17, 17, 17] ==> 3
+*/
+
+function stray(numbers) {
+  // using find, indexOf, lastIndexOf
+  return numbers.find(number => numbers.indexOf(number) === numbers.lastIndexOf(number));
+
+  // using sort()
+  // const arr = numbers.sort();
+  // if (arr[0] !== arr[1]) {
+  //   return arr[0];
+  // }
+  // return arr[arr.length -1];
+}
+
+
+
+// *** Friend or Foe? - 7 kyu
+/*
+  Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+  If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+  Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+
+  i.e.
+
+  friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
+  Note: keep the original order of the names in the output.
+*/
+
+function friend(friends) {
+  // use the filter method to return a new array with only names of 4 chars (str.length === 4)
+  return friends.filter(name => name.length === 4);
+}
+
+
 // *** Stanton measure - 7 kyu
 /*
   The Stanton measure of an array is computed as follows: count the number of occurences for value 1 in the array. Let this count be n. The Stanton measure is the number of times that n appears in the array.
@@ -22,6 +119,20 @@ function stantonMeasure(arr) {
   // *** more concise implementation w/recursive function: 
   // const count = num => arr.filter(x => x === num).length;
   // return count(count(1));
+}
+
+// *** Beginner Series #1 School Paperwork - 8 kyu
+/*
+Your classmates asked you to copy some paperwork for them. You know that there are 'n' classmates and the paperwork has 'm' pages.
+
+Your task is to calculate how many blank pages do you need. If n < 0 or m < 0 return 0.
+
+Example:
+n= 5, m=5: 25
+n=-5, m=5:  0
+*/
+function paperwork(n, m) {
+  return n < 0 || m < 0 ? 0 : n * m;
 }
 
 
@@ -44,6 +155,32 @@ const numberOfPassenger = (busStops) => {
   // return busStops.reduce((rem, [on, off]) => rem + on - off, 0);
 }
 
+
+// *** Century from Year - 8 kyu
+/*
+Introduction
+The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+
+Task
+Given a year, return the century it is in.
+
+Examples
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20
+*/
+
+function century(year) {
+  // let result = 0;
+  // for (let i = year; year > 0; year -= 100) {
+  //   result += 1;
+  // }
+  // return result;
+
+  // using Math.ceil method
+  return Math.ceil(year/100); // rounding up to the nearest century (100)
+}
 
 
 // *** Get Planet Name by ID - 8 kyu
