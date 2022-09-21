@@ -3,7 +3,56 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Summing a number's digits - 7 kyu
+function sumDigits(number) {
 
+  return Math.abs(number).toString() // get absolute value of num, make it a string
+    .split('') // split string into an array
+    .map(el => Number(el)) // make new array of nums instead of string nums
+    .reduce((a,b) => a + b, 0); // use reduce to add all the numbers in the num array
+
+  // slightly more concise with the unary plus operator
+  // return Math.abs(number).toString().split('').reduce((a,b) => +a + +b, 0);
+}
+
+// *** Sort Numbers - 7 kyu
+/*
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+
+For example:
+
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []
+*/
+
+function solution(nums) {
+  // if (nums === [] || nums === null) return [];
+  // return nums.sort((a,b) => a - b);
+
+  // more succintly
+  return (nums || []).sort((a, b) => a - b );
+}
+
+
+// *** Small enough? - Beginner - 7 kyu
+/*
+You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false.
+
+You can assume all values in the array are numbers.
+*/
+function smallEnough(arr, limit) {
+  // using Math.max method
+  // return Math.max(...arr) <= limit;
+
+  // using every() 
+  return arr.every(num => num <= limit);
+
+  // with a for...of loop
+  // for (let num of arr) {
+  //   if (num > limit) return false;
+  // }
+  // return true;
+}
 
 
 // *** Sort array by string length - 7 kyu
