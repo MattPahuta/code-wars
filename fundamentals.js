@@ -4,6 +4,34 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Simple remove duplicates - 7 kyu
+/*
+Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
+
+Example:
+For input: [3, 4, 4, 3, 6, 3]
+
+remove the 3 at index 0
+remove the 4 at index 1
+remove the 3 at index 3
+Expected output: [4, 6, 3]
+*/
+
+function removeDups(arr) {
+  // const result = [];
+  // while (arr.length > 0) {
+  //   const poppedNum = arr.pop();
+  //   if (!result.includes(poppedNum)) {
+  //     result.unshift(poppedNum)
+  //   }
+  // }
+  // return result.reverse();
+
+  // with filter
+  return arr.filter((val, idx) => arr.lastIndexOf(val) === idx);
+}
+
+
 // *** Flatten and sort an array - 7 kyu
 /*
 Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
@@ -25,6 +53,27 @@ function flattenAndSort(array) {
 
 }
 
+// *** Remove exclamation marks - 8 kyu
+/*
+Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
+*/
+function RemoveExclamationMarks(str) {
+  return str.split('!').join('');
+  // or
+  return str.split('').filter( (letter) => letter !== '!').join('');
+}
+
+// *** Oposites Attract - 8 kyu
+/*
+Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an even number of petals and the other has an odd number of petals it means they are in love.
+
+Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
+*/
+function loveFunc(flower1, flower2) {
+  return flower1 % 2 !== flower2 % 2; // compare equality of flowers
+
+  // return ((flower1 % 2 === 0 && flower2 % 2 !== 0) || (flower1 %2 !== 0 && flower2 % 2 === 0)) ? true : false;
+}
 
 // *** Sum of Minimums! - 7 kyu 
 /*
