@@ -4,6 +4,62 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Highest and Lowest - 7 kyu
+/*
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+Examples
+highAndLow("1 2 3 4 5");  // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return "9 -5"
+Notes
+-All numbers are valid Int32, no need to validate them.
+-There will always be at least one number in the input string.
+-Output string must be two numbers separated by a single space, and highest number is first.
+*/
+function highAndLow(numbers) {
+  numbers = numbers.split(' '); // split nums into array
+  // template string with Math.max/min, spreading numbers array
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
+
+  // const numsArr = numbers.split(' ');
+  // const minNum = String(Math.min(...numsArr));
+  // const maxNum = String(Math.max(...numsArr));
+  // return maxNum + ' ' + minNum;
+}
+
+
+// *** Fix string case - 7 kyu 
+/*
+In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+
+make as few changes as possible.
+if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+For example:
+
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+*/
+function fixStringCase(str) {
+  // const lowerCase = [];
+  // const upperCase = [];
+  // for (let letter of str) {
+  //   if (letter.toUpperCase() === letter) {
+  //     upperCase.push(letter);
+  //   } else {
+  //     lowerCase.push(letter)
+  //   }
+  // }
+  // return upperCase.length > lowerCase.length ? str.toUpperCase() : str.toLowerCase();
+
+  // alternatively, using filter
+  const upperLength = str.split('').filter(letter => letter === letter.toUpperCase()).length;
+  const lowerLength = str.length - upperLength;
+  return (upperLength > lowerLength) ? str.toUpperCase() : str.toLowerCase();
+}
+
+
 // *** Simple remove duplicates - 7 kyu
 /*
 Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
