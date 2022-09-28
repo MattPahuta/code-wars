@@ -4,6 +4,36 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Shortest Word - 7 kyu
+/*
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types
+*/
+function findShort(str) {
+  // split string into array of words
+  // map over array to transform into array of word lengths
+  // sort resulting array from shortest to longest
+  const sortedStrArr = str.split(' ').map(word => word.length).sort((a,b) => a - b);
+  // return the first element of the sorted word lenght array
+  return sortedStrArr[0];
+
+  // Using a for loop with split
+  // const strArr = str.split(' ');
+  // let shortest = strArr[0].length;
+  // for (let i = 1; i < strArr.length; i += 1) {
+  //   if (strArr[i].length < shortest) {
+  //     shortest = strArr[i].length;
+  //   }
+  // }
+  // return shortest;
+
+  // using Math.min, sread, split, and map
+  return Math.min(...str.split(' ').map(word => word.length));
+
+}
+
+
 // *** Highest and Lowest - 7 kyu
 /*
 In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
