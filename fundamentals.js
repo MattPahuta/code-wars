@@ -4,6 +4,46 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Reverse words - 7 kyu
+/*
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+Examples
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps"
+
+  return str.split(' ').map(word => {
+    return word.split('').reverse()
+  }
+
+*/
+function reverseWords(str) {
+  // split the str into an array of strings
+  // map over the array of strings
+  // split each letter into an array, reverse it, then join back into a string
+  // join the array of reversed strings back into a single string
+  return str.split(' ').map(word => word.split('').reverse().join('')).join(' ')
+}
+
+// *** What is between? - 8 kyu
+/*
+Complete the function that takes two integers (a, b, where a < b) and return an array of all integers between the input parameters, including them.
+
+For example:
+
+a = 1
+b = 4
+--> [1, 2, 3, 4]
+*/
+function between(a,b) {
+  // use a simple for loop to push values to an array
+  const resultArr = [];
+  for (let i = a; i <= b; i ++) {
+    resultArr.push(i);
+  }
+  return resultArr;
+}
+
+
 // *** Shortest Word - 7 kyu
 /*
 Simple, given a string of words, return the length of the shortest word(s).
