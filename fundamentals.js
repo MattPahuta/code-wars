@@ -179,6 +179,94 @@ function flattenAndSort(array) {
 
 }
 
+// *** Thinkful - Logic Drills: Traffic light - 8 kyu
+/*
+You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+
+Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+
+For example, when the input is green, output should be yellow.
+*/
+function updateLight(current) {
+  // using a switch statement
+  switch (current) {
+    case 'green':
+      return 'yellow';
+      break;
+    case 'yellow':
+      return 'red';
+      break;
+    case 'red':
+      return 'green';
+      break;
+    default:
+      throw 'Error: No lights that color!';
+      break;
+  }
+  // with ternary
+  return current === 'yellow' ? 'red' : current === 'green' ? 'yellow' : 'green';
+}
+
+// *** Grasshopper - Personalized Message - 8 kyu
+/*
+Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+
+Use conditionals to return the proper message:
+
+case	return
+name equals owner	'Hello boss'
+otherwise	'Hello guest'
+*/
+function greet (name, owner) {
+  // with if/else
+  if (name.toLowerCase() === owner.toLowerCase()) {
+    return 'Hello boss';
+  } else {
+    return 'Hello guest';
+  }
+  // with ternary
+  return name.toLowerCase() === owner.toLowerCase() ? 'Hello boss' : 'Hello guest';
+}
+
+// *** Correct the mistakes of the character recognition software - 8 kyu
+/*
+Character recognition software is widely used to digitise printed texts. Thus the texts can be edited, searched and stored on a computer.
+
+When documents (especially pretty old ones written with a typewriter), are digitised character recognition softwares often make mistakes.
+
+Your task is correct the errors in the digitised text. You only have to handle the following mistakes:
+
+S is misinterpreted as 5
+O is misinterpreted as 0
+I is misinterpreted as 1
+The test cases contain numbers only by mistake.
+*/
+function correct(str) {
+  // using a for loop with if/else
+  // str = str.split('');
+  // for (let i = 0; i < str.length; i++) {
+  //   if (str[i] === '5') str[i] = 'S';
+  //   else if (str[i] === "0") str[i] = 'O';
+  //   else if (str[i] === "1") str[i] = 'I';
+  // }
+  // return str.join('');
+
+  // using a corrections object to check against - good for future error-checking enhancements
+  const corrections = {
+    "5": "S",
+    "0": "O",
+    "1": "I",
+  };
+
+  return str.split("").map(char => {
+    return corrections.hasOwnProperty(char) ? corrections[char] : char;
+  }).join("");
+
+}
+// "L0ND0N" => "LONDON";
+// "DUBL1N" => "DUBLIN";
+
+
 // *** Remove exclamation marks - 8 kyu
 /*
 Write function RemoveExclamationMarks which removes all exclamation marks from a given string.
