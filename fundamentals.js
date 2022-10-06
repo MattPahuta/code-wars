@@ -43,6 +43,42 @@ function duplicateCount(text) {
   // return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
 }
 
+
+// *** altERnaTIng cAsE <=> ALTerNAtiNG CaSe - 8 kyu
+/*
+"hello world".toAlternatingCase() === "HELLO WORLD"
+"HELLO WORLD".toAlternatingCase() === "hello world"
+"hello WORLD".toAlternatingCase() === "HELLO world"
+"HeLLo WoRLD".toAlternatingCase() === "hEllO wOrld"
+"12345".toAlternatingCase() === "12345" // Non-alphabetical characters are unaffected
+"1a2b3c4d5e".toAlternatingCase() === "1A2B3C4D5E"
+"String.prototype.toAlternatingCase".toAlternatingCase() === "sTRING.PROTOTYPE.TOaLTERNATINGcASE"
+*/
+String.prototype.toAlternatingCase = function () {
+  return this.split('')
+    .map(char => char === char.toUpperCase() ? char.toLowerCase() : char.toUpperCase())
+    .join('');
+}
+
+
+// *** A step-by-step walk through for the above, streamlined challenge solution
+// for...of loop instead of map and ternary
+function altStrngCase(str) {
+  // split str to array of chars to check each char
+  const strArr = str.split('');
+  // result array to hold result chars
+  const resultArr = [];
+  // loop through strArr
+  for (let char of strArr) {
+    if (char.toUpperCase() !== char) { // if the char is not uppercase, switch it
+      resultArr.push(char.toUpperCase());
+    } else { // else, switch it the other way
+      resultArr.push(char.toLowerCase());
+    }
+  }
+  return resultArr.join(''); // return the resulting array joined back into a string
+}
+
 // *** Is it even? - 8 kyu
 /*
 In this Kata we are passing a number (n) into a function.
