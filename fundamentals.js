@@ -5,6 +5,85 @@
 // ************************************************* //
 
 
+// *** Sum Mixed Array - 8 kyu
+/*
+Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+Return your answer as a number.
+*/
+
+function sumMix(arr) {
+  // apply Number function to each value with map, returning array of nums
+  // use reduce to add all nums of the map-returned array
+  return arr.map(Number).reduce((prevVal, currVal) => prevVal + currVal, 0);
+}
+
+// *** Count of positives / sum of negatives - 8 kyu
+/*
+Given an array of integers.
+
+Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers. 0 is neither positive nor negative.
+
+If the input is an empty array or is null, return an empty array.
+
+Example
+For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65].
+
+*/
+function countPositivesSumNegatives(input) {
+  if (!input || input.length <= 0) return []; // check for falsey value or empty array
+  let positiveCount = 0; // initialize variable to hold positive num count
+  let negativeSum = 0; // initialize variable to hold negative num sum
+
+  for (let val of input) { // loop through input array
+    if (val > 0) { // check for positive nums
+      positiveCount += 1; // increment positiveCount
+    } else { // otherwiese, it's negative or zero
+      negativeSum += val; // add the negative nums
+    }
+  }
+  return [positiveCount, negativeSum]; // return the proper array
+}
+
+
+// *** JavaScript Array Filter - 7 kyu
+/*
+JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+
+The solution would work like the following:
+
+getEvenNumbers([2,4,5,6]) // should == [2,4,6]
+*/
+function getEvenNumbers(numsArray) {
+  return numsArray.filter(num => num % 2 === 0);
+}
+
+// *** Find the capitals - 7 kyu
+/*
+Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
+
+Example
+Test.assertSimilar( capitals('CodEWaRs'), [0,3,4,6] );
+*/
+function capitals(word) {
+  // using a for loop
+  const wordArr = word.split('');
+  const resultArr = [];
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i] === wordArr[i].toUpperCase()) {
+      resultArr.push(i);
+    }
+  }
+  return resultArr;
+
+  // return wordArr.map((el, index) => {
+  //   if (el === el.toUpperCase()) {
+  //     return index;
+  //   } 
+  // })
+}
+
+
 // *** Check the exam - 7 kyu
 /*
 The first input array is the key to the correct answers to an exam, like ["a", "a", "b", "d"]. The second one contains a student's submitted answers.
