@@ -18,6 +18,85 @@ function sumMix(arr) {
   return arr.map(Number).reduce((prevVal, currVal) => prevVal + currVal, 0);
 }
 
+// *** I love you, a little, a lot, passionately...not at all - 8 kyu
+/*
+Who remembers back to their time in the schoolyard, when girls would take a flower and tear its petals, saying each of the following phrases each time a petal was torn:
+
+"I love you"
+"a little"
+"a lot"
+"passionately"
+"madly"
+"not at all"
+If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+
+When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+
+Your goal in this kata is to determine which phrase the girls would say at the last petal for a flower of a given number of petals. The number of petals is always greater than 0.
+
+  howMuchILoveYou(7) => "I love you"
+  howMuchILoveYou(3) => "a lot"
+  howMuchILoveYou(6) => "not at all"
+*/
+function howMuchILoveYou(numPetals) {
+  const loveLevelArr = ["I love you", "a little", "a lot", "passionately", "madly", "not at all"];
+  return loveLevelArr[(numPetals - 1) % 6];
+}
+
+
+// *** Count the Monkeys! - 8 kyu
+/*
+You take your son to the forest to see the monkeys. You know that there are a certain number there (n), but your son is too young to just appreciate the full number, he has to start counting them from 1.
+
+As a good parent, you will sit and count with him. Given the number (n), populate an array with all numbers up to and including that number, but excluding zero.
+
+For example(Input --> Output):
+
+10 --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+ 1 --> [1]
+*/
+
+// *** Find numbers which are divisible by given number - 8 kyu
+/*
+Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of numbers and the second is the divisor.
+
+Example(Input1, Input2 --> Output)
+[1, 2, 3, 4, 5, 6], 2 --> [2, 4, 6]
+
+*/
+function divisibleBy(nums, divisor) {
+  // use filter method to return new array with only nums evenly divisible by divisor
+  return nums.filter(num => num % divisor === 0)
+}
+
+// *** Sort and Star - 8 kyu
+/*
+You will be given a list of strings. You must sort it alphabetically (case-sensitive, and based on the ASCII values of the chars) and then return the first value.
+
+The returned value must be a string, and have "***" between each of its letters.
+
+You should not remove or add elements from/to the array
+*/
+
+function twoSort(arrOfStrings) {
+  // step-by-step
+  const sortedArr = arrOfStrings.sort(); // sort based on ASCII values - sort() default behavior accomplishes this
+  const str = sortedArr[0]; // get the first element 
+  return str.split('').join('***'); // split string into array, join back together with '***'
+
+  // a concise application of the above steps:
+  // return arrOfStrings.sort()[0].split('').join('***');
+}
+
+
+function monkeyCount(n) {
+  const monkeyArr = []; // initialize an array to hold the monkeys!
+  for (let i = 1; i <= n; i++) { // loop to populate monkey array, starting at 1
+    monkeyArr.push(i); // push the values to the array
+  }
+  return monkeyArr; // return the array
+}
+
 // *** Count of positives / sum of negatives - 8 kyu
 /*
 Given an array of integers.
