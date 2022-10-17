@@ -121,6 +121,75 @@ function gooseFilter(birds) {
   // return result;
 }
 
+// *** A wolf in sheep's clothing - 8 kyu
+/*
+Warn the sheep in front of the wolf that it is about to be eaten. Remember that you are standing at the front of the queue which is at the end of the array:
+
+[sheep, sheep, sheep, sheep, sheep, wolf, sheep, sheep]      (YOU ARE HERE AT THE FRONT OF THE QUEUE)
+   7      6      5      4      3            2      1
+If the wolf is the closest animal to you, return "Pls go away and stop eating my sheep". Otherwise, return "Oi! Sheep number N! You are about to be eaten by a wolf!" where N is the sheep's position in the queue.
+
+Note: there will always be exactly one wolf in the array.
+
+Examples
+Input: ["sheep", "sheep", "sheep", "wolf", "sheep"]
+Output: "Oi! Sheep number 1! You are about to be eaten by a wolf!"
+
+Input: ["sheep", "sheep", "wolf"]
+Output: "Pls go away and stop eating my sheep"
+*/
+function warnTheSheep(arr) {
+  // if wolf is at the end of the array
+  if (arr.at(-1) === 'wolf') return "Pls go away and stop eating my sheep";
+  // otherwise, reverse the array to more easily count from bakc
+  // find the wolf index to get the right sheep
+  return `Oi! Sheep number ${arr.reverse().indexOf('wolf')}! You are about to be eaten by a wolf!`;
+
+  // another version using a ternary:
+  // const wolf = arr.reverse().indexOf('wolf');
+  // return wolf === 0 ? 'Pls go away and stop eating my sheep' : `Oi! Sheep number ${wolf}! You are about to be eaten by a wolf!`;
+}
+
+// *** Cat years, Dog years - 8 kyu
+/*
+I have a cat and a dog.
+I got them at the same time as kitten/puppy. That was humanYears years ago.
+Return their respective ages now as [humanYears,catYears,dogYears]
+
+NOTES:
+
+humanYears >= 1
+humanYears are whole numbers only
+
+Cat Years
+15 cat years for first year
++9 cat years for second year
++4 cat years for each year after that
+
+Dog Years
+15 dog years for first year
++9 dog years for second year
++5 dog years for each year after that
+*/
+
+const humanYearsCatYearsDogYears = function(humanYears) {
+  // Step-by-step
+  if (humanYears === 1) return [1, 15, 15]; // handle 1 human year
+  if (humanYears === 2) return [2, 24, 24]; // handle 2 human years
+  // cat calculation ( >2 human years )
+  const catYears = (4 * (humanYears - 2)) + 24;
+  // dog calculation ( >2 human years )
+  const dogYears = (5 * (humanYears - 2)) + 24;
+  // return an array = [ humanYears, catYears, dogYears ]
+  // return [humanYears, catYears, dogYears]
+
+  // streamlined 
+  return [ humanYears,
+    ( humanYears - 1 ? 16 : 11 ) + 4 * humanYears, // cat equation inline
+    ( humanYears - 1 ? 14 : 10 ) + 5 * humanYears, // dog equation inline
+  ];
+
+}
 
 function monkeyCount(n) {
   const monkeyArr = []; // initialize an array to hold the monkeys!
