@@ -5,13 +5,89 @@
 // ************************************************* //
 
 
+// *** Grasshopper - Array Mean - 8 kyu
+/*
+Find Mean
+Find the mean (average) of a list of numbers in an array.
+Information
+To find the mean (average) of a set of numbers add all of the numbers together and divide by the number of values in the list.
+For an example list of 1, 3, 5, 7
+
+1. Add all of the numbers
+  1+3+5+7 = 16
+2. Divide by the number of values in the list. In this example there are 4 numbers in the list.
+  16/4 = 4
+3. The mean (or average) of this list is 4
+*/
+function findAverage(nums) {
+  // ** using reduce and the nums array length
+  return nums.reduce((pVal, cVal) => pVal + cVal, 0) / nums.length;
+
+  // ** with a for of loop
+  // let result = 0
+  // for(let num of nums) {
+  //   result += num
+  // }
+  // return result / nums.length
+}
+
+// *** Add Length - 8 kyu
+/*
+What if we need the length of the words separated by a space to be added at the end of that same word and have it returned as an array?
+
+Example(Input --> Output)
+
+"apple ban" --> ["apple 5", "ban 3"]
+"you will win" -->["you 3", "will 4", "win 3"]
+Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element .
+
+Note: String will have at least one element; words will always be separated by a space.
+
+*/
+function addLength(str) {
+  // const strArr = str.split(' ')
+  // return strArr.map(str => {
+  //   return `${str} ${str.length}`
+  // })
+
+  return str.split(' ').map(str => str + ' ' + str.length);
+
+}
+
+
+// *** Sum of differences in array - 8 kyu
+/*
+Your task is to sum the differences between consecutive pairs in the array in descending order.
+
+Example
+[2, 1, 10]  -->  9
+In descending order: [10, 2, 1]
+
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+
+[18, 3, 23, 33, 2, 4, 22, 18, 23]
+
+If the array is empty or the array has only one element the result should be 0 
+*/
+function sumOfDifferences(arr) {
+  // using a for loop
+  arr.sort((a,b) => b - a); // sort area in descending order using sort()
+  let sum = 0; 
+  for (let i = 0; i < arr.length -1; i++) { // loop through array, stoping one from the back
+    sum += arr[i] - arr[i + 1]; // add current index val minus next index val to sum
+  }
+  return sum;
+
+  // using Math.max and min wiht a ternary - no loop or sorting required
+  return arr.length > 1 ? Math.max(...arr) - Math.min(...arr) : 0;
+}
+
 // *** Sum Mixed Array - 8 kyu
 /*
 Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
 
 Return your answer as a number.
 */
-
 function sumMix(arr) {
   // apply Number function to each value with map, returning array of nums
   // use reduce to add all nums of the map-returned array
@@ -135,6 +211,25 @@ function well(x) {
     : 'Fail!';
 }
 
+// *** Filling an array - 8 kyu
+/*
+We want an array, but not just any old array, an array with contents!
+
+Write a function that produces an array with the numbers 0 to N-1 in it.
+
+For example, the following code will result in an array containing the numbers 0 to 4:
+
+arr(5) // => [0,1,2,3,4]
+Note: The parameter is optional. So you have to give it a default value.
+*/
+const arr = (n = 0) => {
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(i);
+  }
+
+  return result;
+}
 
 
 // *** A wolf in sheep's clothing - 8 kyu
