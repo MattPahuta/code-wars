@@ -5,6 +5,82 @@
 // ************************************************* //
 
 
+// *** Multiple of index - 8 kyu 
+/*
+Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
+
+Some cases:
+[22, -6, 32, 82, 9, 25] =>  [-6, 32, 25]
+[68, -1, 1, -7, 10, 10] => [-1, 10]
+[-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68] => [-85, 72, 0, 68]
+*/
+
+function multipleOfIndex(array) {
+  // ** use a for loop
+  // const multiples = [];
+  // for (let i = 0; i < array.length; i++) {
+  //   if (array[i] % i === 0) {
+  //     multiples.push(array[i])
+  //   }
+  // }
+  // console.log(multiples)
+  // ** use the filter method
+  return array.filter((num, index) => num % index === 0);
+
+}
+
+// *** Is there a vowel in there? - 8 kyu
+/*
+Given an array of numbers, check if any of the numbers are the character codes for lower case vowels (a, e, i, o, u).
+
+If they are, change the array value to a string of that vowel.
+
+Return the resulting array
+
+Example: 
+isVowel([97, 55, 33, 117, 105, 88, 111]) => ['a', 55, 33, 'u', 'i', 88, 'o']
+*/
+function isVowel(arr) {
+  // take in an array of numbers
+  // if a number === a charCode, change the number to a string of the vowel the charCode reprents 
+  // use String.fromCharCode(code) to return the string version of vowel
+
+  // const charCodes = [
+  //   {vowel: 'a', charCode: 97},
+  //   {vowel: 'e', charCode: 101},
+  //   {vowel: 'i', charCode: 105},
+  //   {vowel: 'o', charCode: 111},
+  //   {vowel: 'u', charCode: 117},
+  //   ]
+
+  // ** Using a if/else with multiple conditions
+  // const resultArr = [];
+  // for (let num of arr) {
+  //   if (String.fromCharCode(num) === 'a' || 
+  //       String.fromCharCode(num) === 'e' ||
+  //       String.fromCharCode(num) === 'i' ||
+  //       String.fromCharCode(num) === 'o' ||
+  //       String.fromCharCode(num) === 'u') {
+  //         resultArr.push(String.fromCharCode(num))
+  //       } else {
+  //         resultArr.push(num)
+  //       }
+  // }
+  // return resultArr;
+
+  // *** Solve with map method and object to check codes against
+  const codeMap = {
+    97: 'a',
+    101: 'e',
+    105: 'i',
+    111: 'o',
+    117: 'u',
+  }
+
+  return arr.map(num => codeMap[num] ? codeMap[num] : num);
+}
+
+
 // *** Grasshopper - Array Mean - 8 kyu
 /*
 Find Mean
