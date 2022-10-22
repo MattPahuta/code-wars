@@ -5,6 +5,29 @@
 // ************************************************* //
 
 
+// *** SpeedCode #2 - Array Madness - 8kyu
+/*
+Objective
+Given two integer arrays a, b, both of length >= 1, create a program that returns true if the sum of the squares of each element in a is strictly greater than the sum of the cubes of each element in b.
+
+E.g.
+
+arrayMadness([4, 5, 6], [1, 2, 3]); // returns true since 4 ** 2 + 5 ** 2 + 6 ** 2 > 1 ** 3 + 2 ** 3 + 3 ** 3
+*/
+function arrayMadness(a, b) {
+  // // ** using Math.pow with map and then reduce
+  // aSquaresSums = a.map(num => Math.pow(num,2)).reduce((a,b) => a + b, 0);
+  // bCubesSums = b.map(num => Math.pow(num, 3)).reduce((a,b) => a + b, 0);
+  // // compare resulting sums with ternary
+  // return aSquaresSums > bCubesSums ? true: false;
+
+  // ** condensed with only reduce and the exponentiation operator (**)
+  return a.reduce((pVal, cVal) => pVal + cVal**2, 0) > b.reduce((pVal, cVal) => pVal + cVal**3, 0);
+
+}
+
+
+
 // *** Multiple of index - 8 kyu 
 /*
 Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
