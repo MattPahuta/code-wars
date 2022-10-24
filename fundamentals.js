@@ -5,6 +5,58 @@
 // ************************************************* //
 
 
+// *** Calculate average - 8 kyu 
+/*
+Write a function which calculates the average of the numbers in a given list.
+
+Note: Empty arrays should return 0.
+*/
+function findAverage(array) {
+  // ** using reduce to add all nums and divide by array length
+  // ternary statement to account for empty arrays passed in
+  return array.length > 0 ? array.reduce((a,b) => a + b, 0) / array.length : 0;
+
+  // ** using a for loop 
+  // if (array.length === 0) {
+  //   return 0;
+  //   }
+  // let  result = 0;
+  // for (let i = 0; i < array.length; i++) {
+  //   result +=array[i];
+  // }
+  // return result / array.length;
+}
+
+
+// *** Invert values - 8 kyu
+/*
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == []
+You can assume that all values are integers. Do not mutate the input array/list.
+*/
+function invert(array) {
+  // *** simply using map to return new array with each num toggled
+  // return array.map(num => -num);
+
+
+  // *** using a for...of loop to push the toggled num value
+  const result = [];
+  for (let num of array) {
+    result.push(-(num));
+  }
+  return result;
+
+  // *** using map, Math.abs, and a ternary statement
+  // return array.map(num => {
+  //   return num === Math.abs(num) ? (-Math.abs(num)) : (Math.abs(num))
+  // });
+
+}
+
+
 // *** SpeedCode #2 - Array Madness - 8kyu
 /*
 Objective
