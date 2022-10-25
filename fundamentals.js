@@ -4,6 +4,63 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** N-th Power - 8 kyu
+/*
+You are given an array with positive numbers and a non-negative number N. You should find the N-th power of the element in the array with the index N. If N is outside of the array, then return -1. Don't forget that the first element has the index 0.
+
+Let's look at a few examples:
+
+array = [1, 2, 3, 4] and N = 2, then the result is 3^2 == 9; 
+array = [1, 2, 3] and N = 3, but N is outside of the array, so the result is -1.
+*** NOTE: poor instructions - actually looking for array[n] to nth power
+
+*/
+function index(array, n) {
+  // ** with simple ternary
+  // check if n outside of array with isNaN method => 'undefined'
+  // return isNaN(array[n]**n) ? -1 : array[n]**n;
+
+  // ** using ternary with Math.pow
+  return array.length > n ? Math.pow(array[n], n) : -1;
+
+  // ** with simple or operator
+  // return array[n] ** n || -1;
+}
+
+
+// *** To square(root) or not to square(root) - 8 kyu
+/*
+Write a method, that will get an integer array as parameter and will process every number from this array.
+
+Return a new array with processing every number of the input-array like this:
+
+If the number has an integer square root, take this, otherwise square the number.
+
+Example
+[4,3,9,7,2,1] -> [2,9,3,49,4,1]
+Notes
+The input array will always contain only positive numbers, and will never be empty or null.
+*/
+function squareOrSquareRoot(array) {
+  // ** Using built in Math.sqrt() and isInteger 
+  // ** with for of loop
+  // const result = [];
+  // for (let num of array) {
+  //   if (Number.isInteger(Math.sqrt(num))) {
+  //     result.push(Math.sqrt(num))
+  //   } else {
+  //     result.push(num * num)
+  //   }
+  // }
+  // return result;
+
+  // ** as above, but with map and ternary
+  return array.map(num => {
+    return Number.isInteger(Math.sqrt(num)) ? Math.sqrt(num) : num * num;
+  })
+
+}
+
 
 // *** Calculate average - 8 kyu 
 /*
