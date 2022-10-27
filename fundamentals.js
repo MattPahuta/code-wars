@@ -4,6 +4,52 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+
+// *** The Oldest Ages - 7 kyu 
+/*
+The two oldest ages function/method needs to be completed. It should take an array of numbers as its argument and return the two highest numbers within the array. The returned value should be an array in the format [second oldest age,  oldest age].
+
+The order of the numbers passed in could be any order. The array will always include at least 2 items. If there are two or more oldest age, then return both of them in array format.
+
+For example (Input --> Output):
+
+[1, 2, 10, 8] --> [8, 10]
+[1, 5, 87, 45, 8, 8] --> [45, 87]
+[1, 3, 10, 0]) --> [3, 10]
+*/
+function twoOldestAges(ages) {
+  // ** using slice, sandwhiched between two sorts
+  // return ages.sort((a,b) => b - a).slice(0,2).sort((a,b) => a - b);
+  // ** same as above, but just one sort with a slice:
+  return ages.sort((a,b) => a - b).slice(-2); // two from the back results in proper order
+}
+
+// *** The highest profit wins! - 7 kyu
+/*
+Task
+Write a function that returns both the minimum and maximum number of the given list/array.
+
+Examples (Input --> Output)
+[1,2,3,4,5] --> [1,5]
+[2334454,5] --> [5,2334454]
+[1]         --> [1,1]
+Remarks
+All arrays or lists will always have at least one element, so you don't need to check the length. Also, your function will always get an array or a list, you don't have to check for null, undefined or similar.
+*/
+
+function minMax(arr) {
+  // ** simply use Math.min/max, spreading the arr as the argument, return the new array in place
+  return [Math.min(...arr), Math.max(...arr)];
+
+  // ** A solution with a for loop and conditionals
+  // let max = arr[0], min = arr[0];
+  // for (let i = 0; i < arr.length; i += 1) {
+  //   if (arr[i] > max) max = arr[i];
+  //   if (arr[i] < min) min = arr[i]; 
+  // }
+  // return [min,max];
+}
+
 // *** Remove First and Last Character Part Two - 8 kyu
 /*
 You are given a string containing a sequence of character sequences separated by commas.
