@@ -4,6 +4,81 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Don't give me five! - 7 kyu
+/*
+In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
+
+Examples:
+
+1,9 -> 1,2,3,4,6,7,8,9 -> Result 8
+4,17 -> 4,6,7,8,9,10,11,12,13,14,16,17 -> Result 12
+The result may contain fives. ;-)
+The start number will always be smaller than the end number. Both numbers can be also negative!
+*/
+function dontGiveMeFive(start, end) {
+  // ** my solution:
+  // build the array within a range, populating with a for loop
+  const numArr = []
+  for (let i = start; i <= end; i++) {
+    numArr.push(i)
+  }
+  // use map w/toString and filter w/includes to filter out vals with 5's, return the length
+  return numArr.map(num => num.toString()).filter(val => !val.includes('5')).length;
+
+// keep it within a for loop:
+//  const result = [];
+//  for (let i = start; i <= end; i++) {
+//   if (!i.toString().includes('5')) {
+//     result.push(i);
+//   }
+//  }
+//  return result.length;
+}
+
+// *** Generate range of integers - 8 kyu
+/*
+Implement a function named generateRange(min, max, step), which takes three arguments and generates a range of integers from min to max, with the step. The first integer is the minimum value, the second is the maximum of the range and the third is the step. (min < max)
+
+Task
+Implement a function named
+
+generateRange(2, 10, 2) // should return array of [2,4,6,8,10]
+generateRange(1, 10, 3) // should return array of [1,4,7,10]
+Note
+min < max
+step > 0
+the range does not HAVE to include max (depending on the step)
+*/
+function generateRange(min, max, step) {
+  // ** using a for loop to push proper values
+  let result = []; 
+  for (let i = min; i <= max; i+= step) {
+    result.push(i)
+  }
+  return result;
+
+  // ** using a ternary with recursion:
+  // return min > max ? [] : [min, ...generateRange(min + step, max, step)];
+}
+
+
+// *** Get Nth Even Number - 8 kyu
+/*
+Return the Nth Even Number
+
+Example(Input --> Output)
+
+1 --> 0 (the first even number is 0)
+3 --> 4 (the 3rd even number is 4 (0, 2, 4))
+100 --> 198
+1298734 --> 2597466
+The input will not be 0.
+*/
+function nthEven(n) {
+  // ** multiply n by 2, minus 1
+  return (n * 2) - 2;
+
+}
 
 // *** The Oldest Ages - 7 kyu 
 /*
