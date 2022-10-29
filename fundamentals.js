@@ -4,6 +4,60 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Factorial - 7 kyu
+/*
+In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
+
+Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type ArgumentOutOfRangeException (C#) or IllegalArgumentException (Java) or RangeException (PHP) or throw a RangeError (JavaScript) or ValueError (Python) or return -1 (C).
+*/
+function factorial(n) {
+  // ** Using if/else conditional with a recusive function call
+  // if (n < 0 || n > 12) {
+  //   throw new RangeError("The argument must be between 0 and 12")
+  // } else if (n === 0) {
+  //     return 1;
+  // } else {
+  //     return n * factorial(n-1);
+  //   }
+
+  // ** using a ternary with the recursive call
+  if (n < 0 || n > 12) {
+    throw new RangeError("The argument must be between 0 and 12");
+  }
+  return n <= 1 ? 1 : n * factorial(n - 1)
+
+  // ** using a While loop
+  // let result = n;
+  // if (n === 0 || n === 1) 
+  //   return 1; 
+  // while (n > 1) { 
+  //   n--;
+  //   result *= n;
+  // }
+  // return result;
+
+}
+
+// *** No oddities here - 7 kyu
+/*
+Write a small function that returns the values of an array that are not odd.
+
+All values in the array will be integers. Return the good values in the order they are given.
+*/
+function noOdds(values) {
+  // ** simple use case for the filter method, returning array with odd number vals filtered out
+  return values.filter(val => val % 2 === 0);
+
+  // ** or, using a good 'ol for loop
+  // const noOddsArr = [];
+  // for (let i = 0; i < values.length; i++) {
+  //   if (values[i] % 2 === 0) {
+  //     noOddsArr.push(values[i])
+  //   }
+  // }
+  // return noOddsArr;
+}
+
 // *** Don't give me five! - 7 kyu
 /*
 In this kata you get the start number and the end number of a region and should return the count of all numbers except numbers with a 5 in it. The start and the end number are both inclusive!
