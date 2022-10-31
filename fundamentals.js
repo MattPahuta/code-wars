@@ -4,6 +4,109 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Fizz Buzz - 7 kyu
+/*
+Return an array containing the numbers from 1 to N, where N is the parametered value.
+
+Replace certain values however if any of the following conditions are met:
+
+If the value is a multiple of 3: use the value "Fizz" instead
+If the value is a multiple of 5: use the value "Buzz" instead
+If the value is a multiple of 3 & 5: use the value "FizzBuzz" instead
+N will never be less than 1.
+
+Method calling example:
+
+fizzbuzz(3) -->  [1, 2, "Fizz"]
+*/
+function fizzbuzz(n) {
+  // ** A traditional for loop w/conditional solution: 
+  const result = [];
+  for (let i = 1; i <= n; i += 1) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push('FizzBuzz');
+    } else if (i % 3 === 0) {
+      result.push('Fizz');
+    } else if (i % 5 === 0) {
+      result.push('Buzz');
+    } else {
+      result.push(i);
+    }
+  }
+  return result;
+
+  // ** similar, but with a while loop and ternary:
+  // let i = 1
+  // let arr = [];
+  // while(i <= n) {
+  //   let fizz = (i % 3 == 0);
+  //   let buzz = (i % 5 == 0);
+  //   if (fizz || buzz) {
+  //     arr.push((fizz ? "Fizz" : "") + (buzz ? "Buzz" : ""));
+  //   }
+  //   else {
+  //     arr.push(i);
+  //   }
+  //   i++;
+  // }
+  // return arr;
+
+}
+
+// *** Row Weights - 7 kyu 
+/*
+Scenario
+Several people are standing in a row divided into two teams.
+The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
+
+Given an array of positive integers (the weights of the people), return a new array of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+
+Notes
+Array size is at least 1.
+All numbers will be positive.
+
+Input >> Output Examples
+
+rowWeights([13, 27, 49])  ==>  return (62, 27)
+Explanation:
+The first element 62 is the total weight of team 1, and the second element 27 is the total weight of team 2.
+
+rowWeights([50, 60, 70, 80])  ==>  return (120, 140)
+Explanation:
+The first element 120 is the total weight of team 1, and the second element 140 is the total weight of team 2.
+
+rowWeights([80])  ==>  return (80, 0)
+Explanation:
+The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.
+*/
+function rowWeights(array) {
+  // ** using filter and reduce
+  // const team1 = array.filter((num, index) => {
+  //   return index % 2 === 0;
+  // }).reduce((a,b) => a + b, 0)
+  // const team2 = array.filter((num, index) => {
+  //   return index % 2 !== 0;
+  // }).reduce((a,b) => a + b, 0)
+  // return [team1, team2];
+
+  // ** same code as above, streamlined for length 
+  const team1 = array.filter((num, i) => i % 2 === 0).reduce((a,b) => a + b, 0);
+  const team2 = array.filter((num, i) => i % 2 !== 0).reduce((a,b) => a + b, 0);
+  return [team1, team2];
+
+  // ** using forEach with a conditional:
+  // let team1 = 0;
+  // let team2 = 0;
+  // array.forEach(function(num,index) {
+  //   if (index % 2 == 0){
+  //     team1 += num;
+  //   } else{
+  //     team2 += num;
+  //   }
+  // });
+  // return [team1, team2];
+}
+
 // *** Factorial - 7 kyu
 /*
 In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
