@@ -4,6 +4,74 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Maximum Product - 7 kyu
+/*
+Task:
+Given an array of integers , Find the maximum product obtained from multiplying 2 adjacent numbers in the array.
+
+Notes:
+Array/list size is at least 2.
+Array/list numbers could be a mixmature of positives, negatives also zeroes .
+
+Input >> Output Examples:
+adjacentElementsProduct([1, 2, 3]); ==> return 6
+Explanation:
+The maximum product obtained from multiplying 2 * 3 = 6, and they're adjacent numbers in the array.
+
+adjacentElementsProduct([9, 5, 10, 2, 24, -1, -48]); ==> return 50
+Explanation:
+Max product obtained from multiplying 5 * 10  =  50 .
+
+adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])  ==>  return -14
+Explanation:
+The maximum product obtained from multiplying -2 * 7 = -14, and they're adjacent numbers in the array.
+*/
+function adjacentElementsProduct(array) {
+  // ** using a for loop
+  // let maxProduct = array[0] * array[1]; // set initial max product value
+
+  // for (let i = 1; i < array.length; i++) { // loop through array, staring at position 1
+  //   if (array[i] * array[i + 1] > maxProduct) { // test next adjacent num products
+  //     maxProduct = array[i] * array[i + 1] // set a new maxProduct value
+  //   }
+  // }
+  // return maxProduct; // return the maxProduct
+
+  // ** using a for loop with Math.max
+  const productsArray = []
+  for(i = 0; i < array.length -1; i++){
+    productsArray.push(array[i] * array[i +1]); // build an array of adjacent element products
+  }  
+  return Math.max(...productsArray) // spread productsArrary into Math.max, return max
+}
+
+
+// *** Even numbers in an array - 7 kyu
+/*
+Given an array of numbers, return a new array of length number containing the last even numbers from the original array (in the same order). The original array will not be empty and will contain at least "number" even numbers.
+
+For example:
+
+([1, 2, 3, 4, 5, 6, 7, 8, 9], 3) => [4, 6, 8]
+([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2) => [-8, 26]
+([6, -25, 3, 7, 5, 5, 7, -3, 23], 1) => [6]
+*/
+function evenNumbers(array, number) {
+  // ** use filter to get the even nums, then slice (number) of elements from the end of array
+  return array.filter(num => num % 2 === 0).slice(-number);
+
+  // ** using a for loop with push and splice array methods:
+  // const evens = [];
+  // for (let i = 0; i <= array.length; i++) {
+  //   if (array[i] % 2 === 0) { // get the even numbers only
+  //     evens.push(array[i]);
+  //   }
+  // }
+  // console.log(evens)
+  // // start at the length of evens -(number), delete (number)
+  // return evens.splice(evens.length -number, number); // return spliced elements
+}
+
 // *** Sorted? yes? no? how? - 7 kyu
 /*
 Complete the method which accepts an array of integers, and returns one of the following:
