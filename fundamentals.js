@@ -4,6 +4,80 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+
+// *** Minimize Sum of Array (Array Series #1) - 7 kyu
+/*
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+
+Notes
+Array/list will contain positives only .
+Array/list will always have even size
+
+Input >> Output Examples
+minSum([5,4,2,3]) ==> return (22) 
+Explanation:
+The minimum sum obtained from summing each two integers product ,  5*2 + 3*4 = 22
+
+minSum([12,6,10,26,3,24]) ==> return (342)
+Explanation:
+The minimum sum obtained from summing each two integers product ,  26*3 + 24*6 + 12*10 = 342
+
+minSum([9,2,8,7,5,4,0,6]) ==> return (74)
+Explanation:
+The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74
+
+*/
+function minSum(arr) {
+  // get max and min number in array, multiply the two nums 
+  // get the next max and min number in array, multiply the two nums
+  // ...and so on - add all the products together and return sum
+
+  // ** Sort the array into descending order (max to min)
+  const sortedArr = arr.sort((a,b) => b - a);
+  let sum = 0; // initilize a sum variable
+  // use a while loop to sum products of shifted/popped elements
+  while (sortedArr.length) {
+    sum += sortedArr.shift() * sortedArr.pop(); // shift/pop elements from ends of array
+  }
+  return sum;
+
+  // ** Using reduce
+  // return arr.sort((a,b) => a - b).reduce((prevVal, currVal) => prevVal + currVal * arr.pop(), 0)
+}
+
+
+// *** Flatten - 7 kyu
+/*
+Write a function that flattens an Array of Array objects into a flat Array. Your function must only do one level of flattening.
+
+flatten([1,2,3]) // => [1,2,3]
+flatten([[1,2,3],["a","b","c"],[1,2,3]])  // => [1,2,3,"a","b","c",1,2,3]
+flatten([[[1,2,3]]]) // => [[1,2,3]]
+*/
+function flatten(array) {
+  // return array.flat()
+
+  // ** using reduce with concat (my solution)
+  return array.reduce((prevVal, currVal) => prevVal.concat(currVal), []);
+
+  // ** using the spread operator with concat:
+  // return [].concat(...array);
+
+  // ** with nested for loop and instanceof Array
+  // const res = [];
+  // for(let i = 0; i < array.length; i++) {
+  //   const el = array[i];
+  //   if(el instanceof Array) {
+  //     for(let j = 0; j < el.length; j++) {
+  //       res.push(el[j]);
+  //     }
+  //   } else {
+  //     res.push(el);
+  //   }
+  // }
+  // return res;
+}
+
 // *** Maximum Product - 7 kyu
 /*
 Task:
