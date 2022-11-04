@@ -5,6 +5,57 @@
 // ************************************************* //
 
 
+// *** Get key/value pairs as arrays - 7 kyu
+/*
+Complete the keysAndValues function so that it takes in an object and returns the keys and values as separate arrays.
+
+Example:
+keysAndValues({a: 1, b: 2, c: 3}) // should return [['a', 'b', 'c'], [1, 2, 3]]
+
+Style Points (JS/CoffeeScript only): This kata only tests for data that uses object literal notation (simple objects). For extra style, can you get your method to check for objects that extend their prototype?
+*/
+function keysAndValues(data) {
+  // keys = Object.keys(data) => array of keys
+  // values = Object.values(data) => array of values
+  return [Object.keys(data), Object.values(data)];
+
+  // Using a for in loop with hasOwnProperty
+  // const keys = [];
+  // const vals = [];
+  // for (key in data) {
+  //   if (data.hasOwnProperty(key)) {
+  //     keys.push(key);
+  //     vals.push(data[key])
+  //   }
+  // }
+  // return [keys, vals];
+}
+
+
+// *** Smallest value of an array - 7 kyu
+/*
+Write a function that can return the smallest value of an array or the index of that value. The function's 2nd parameter will tell whether it should return the value or the index.
+
+Assume the first parameter will always be an array filled with at least 1 number and no duplicates. Assume the second parameter will be a string holding one of two values: 'value' and 'index'.
+
+min([1,2,3,4,5], 'value') // => 1
+min([1,2,3,4,5], 'index') // => 0
+*/
+function min(arr, toReturn) {
+  // 'value' | 'index'
+  // ** using a ternary to check toReturn value, returing appropriate check
+  return toReturn === 'value' ? Math.min(...arr) : arr.indexOf(Math.min(...arr));
+
+  // a traditional if/else conditional version: 
+  // if (toReturn === 'value') {
+  //   return Math.min(...arr);
+  // } else {
+  //   return arr.indexOf(Math.min(...arr));
+  // }
+
+}
+
+
 // *** Minimize Sum of Array (Array Series #1) - 7 kyu
 /*
 Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
