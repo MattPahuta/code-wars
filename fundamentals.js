@@ -4,6 +4,44 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Odd-Even String Sort - 7 kyu
+/*
+Given a string s. You have to return another string such that even-indexed and odd-indexed characters of s are grouped and groups are space-separated (see sample below)
+
+Note: 
+0 is considered to be an even index. 
+All input strings are valid with no spaces
+input: 'CodeWars'
+output 'CdWr oeas'
+
+S[0] = 'C'
+S[1] = 'o'
+S[2] = 'd'
+S[3] = 'e'
+S[4] = 'W'
+S[5] = 'a'
+S[6] = 'r'
+S[7] = 's'
+Even indices 0, 2, 4, 6, so we have 'CdWr' as the first group
+odd ones are 1, 3, 5, 7, so the second group is 'oeas'
+And the final string to return is 'Cdwr oeas'
+*/
+function sortMyString(s) {
+  // ** with a for loop, placeholder variables, and ternary
+  let evenIndexed = '';
+  let oddIndexed = '';
+  for (let i = 0; i < s.length; i++) {
+    i % 2 === 0 ? evenIndexed += s[i] : oddIndexed += s[i]
+  }
+  // return evenIndexed.concat(' ', oddIndexed);
+
+  // ** With split, filter, and join
+  let even = s.split('').filter((char, idx) => idx % 2 === 0).join('');
+  let odd = s.split('').filter((char, idx) => idx % 2 !== 0).join('');
+  return even + ' ' + odd;
+
+}
+
 // *** Coding Meetup #2 - Greet deveolopers - 7 kyu
 /*
 You will be given an array of objects (associative arrays in PHP, tables in COBOL) representing data about developers who have signed up to attend the next coding meetup that you are organising.
@@ -54,6 +92,7 @@ function greetDevelopers(list) {
   return list.map(dev => {
     return ({...dev, greeting: `Hi ${dev.firstName}, what do you like the most about ${dev.language}?`})
   });
+
 
 }
 
