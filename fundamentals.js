@@ -4,6 +4,35 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Parts of a list - 7 kyu
+/*
+
+(partlist(["I", "wish", "I", "hadn't", "come"]) =>
+
+  [["I", "wish I hadn't come"], ["I wish", "I hadn't come"], ["I wish I", "hadn't come"], ["I wish I hadn't", "come"]])
+
+(partlist(["cdIw", "tzIy", "xDu", "rThG"]) =>  [["cdIw", "tzIy xDu rThG"], ["cdIw tzIy", "xDu rThG"], ["cdIw tzIy xDu", "rThG"]])
+(partlist(["vJQ", "anj", "mQDq", "sOZ"]) => [["vJQ", "anj mQDq sOZ"], ["vJQ anj", "mQDq sOZ"], ["vJQ anj mQDq", "sOZ"]])
+
+*/
+function partlist(arr) {
+  // ** with map, slice, join
+  // return arr.map((el, idx) => [arr.slice(0, idx).join(' '), arr.slice(idx).join(' ')]).slice(1);
+
+  // with a for loop, push, slice and join
+  const resultArr = [];
+  for (let i = 1; i < arr.length; i += 1) {
+    const newArr = [];
+    newArr.push(arr.slice(0, i).join(' '));
+    newArr.push(arr.slice(i).join(' '));
+    resultArr.push(newArr);
+  }
+  return resultArr;
+}
+
+
+
+
 // *** Substring fun - 7 kyu
 /*
 Complete the function that takes an array of words.
