@@ -4,6 +4,76 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Coding Meetup #3 - Ruby coming? - 7 kyu
+/*
+You will be given an array of objects (associative arrays in PHP) representing data about developers who have signed up to attend the next coding meetup that you are organising.
+
+Your task is to return:
+
+true if at least one Ruby developer has signed up; or
+false if there will be no Ruby developers.
+For example, given the following input array:
+
+var list1 = [
+  { firstName: 'Emma', lastName: 'Z.', country: 'Netherlands', continent: 'Europe', age: 29, language: 'Ruby' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'Javascript' },
+  { firstName: 'Jayden', lastName: 'P.', country: 'Jamaica', continent: 'Americas', age: 42, language: 'JavaScript' }
+];
+your function should return true.
+
+Notes:
+
+The input array will always be valid and formatted as in the example above.
+*/
+function isRubyComing(list) {
+  // ** using some method
+  return list.some(dev => dev.language === 'Ruby');
+
+  // with for... of loop, count variable, conditional, and ternary
+  // let rubyCount = 0;
+  // for (const dev of list) {
+  //   if (dev.language === 'Ruby') {
+  //     rubyCount += 1;
+  //   }
+  // }
+  // return rubyCount ? true : false;
+}
+
+
+// *** max diff easy - 7 kyu
+/*
+You must implement a function that returns the difference between the largest and the smallest value in a given list / array (lst) received as the parameter.
+
+- lst contains integers, that means it may contain some negative numbers
+- if lst is empty or contains a single element, return 0
+- lst is not sorted
+[1, 2, 3, 4]   //  returns 3 because 4 -   1  == 3
+[1, 2, 3, -4]  //  returns 7 because 3 - (-4) == 7
+*/
+
+function maxDiff(list) {
+  // ** Math.max and min with ternary (submitted)
+  return list.length ? Math.max(...list) - Math.min(...list) : 0;
+
+  // using a for loop with Math.min/max
+  // if (list.length <= 1) {
+  //   return 0;
+  // }
+
+  // let min = list[0];
+  // let max = list[0];
+
+  // for (let i = 1; i < list.length; i += 1) {
+  //   const current = list[i];
+  //   min = Math.min(min, current);
+  //   max = Math.max(max, current);
+  // }
+
+  // return max - min;
+
+}
+
+
 // *** Coding Meetup #1 - Count JS devs coming from Europe - 7 kyu
 /*
 You will be given an array of objects (hashes in ruby) representing data about developers who have signed up to attend the coding meetup that you are organising for the first time.
