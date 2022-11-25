@@ -4,6 +4,28 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Nth Smallest Element - 7 kyu
+/*
+Task
+Given an array/list of integers, find the Nth smallest element in the array.
+
+Notes
+- Array/list size is at least 3.
+- Array/list's numbers could be a mixture of positives , negatives and zeros.
+- Repetition in array/list's numbers could occur, so don't remove duplications.
+
+Input >> Output Examples
+arr=[3,1,2]            n=2    ==> return 2 
+arr=[15,20,7,10,4,3]   n=3    ==> return 7 
+arr=[2,169,13,-5,0,-1] n=4    ==> return 2 
+arr=[2,1,3,3,1,2],     n=3    ==> return 2 
+*/
+function nthSmallest(arr, pos) {
+  // ** sort area from low to high, return element at (pos - 1) for nth smallest number
+  return sortedArr = arr.sort((a,b) => a - b)[pos -1];
+}
+
+
 // *** Balanced Number (numbers series #1) - 7 kyu
 /*
 A balanced number is a number where the sum of digits to the left of the middle digit(s) and the sum of digits to the right of the middle digit(s) are equal.
