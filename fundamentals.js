@@ -17,16 +17,8 @@ Notes
 
 Input >> Output Examples
 minimumNumber([3,1,2]) ==> return (1)
-Explanation:
-Since , the sum of the list's elements equal to (6) , the minimum number to be inserted to transform the sum to prime number is (1) , which will make the sum of the List equal the closest prime number (7) .
-
-minimumNumber([2,12,8,4,6]) ==> return (5)
-Explanation:
-Since , the sum of the list's elements equal to (32) , the minimum number to be inserted to transform the sum to prime number is (5) , which will make the sum of the List equal the closest prime number (37) .
-
+mumNumber([2,12,8,4,6]) ==> return (5)
 minimumNumber([50,39,49,6,17,28]) ==> return (2)
-Explanation:
-Since , the sum of the list's elements equal to (189) , the minimum number to be inserted to transform the sum to prime number is (2) , which will make the sum of the List equal the closest prime number (191) .
 */
 function minimumNumberToPrime(numbers) {
   // ** using reduce, a helper function, and while loop (submitted)
@@ -53,21 +45,7 @@ function minimumNumberToPrime(numbers) {
 
   return addNum - sum; // return difference to get closest prime
 
-  // similar, but streamlined solution:
-  // let sum = numbers.reduce((a,b) => a + b)
-  // for(let i = sum; ; i++) {
-  //   if(prime(i)) return i - sum
-  // }
-  // function prime(a) {
-  //   if(a < 2) return false
-  //   if(a % 2 === 0) return a === 2
-  //   for(let i = 3; i * i < a; i += 2) {
-  //     if(a % i === 0) return false
-  //   }
-  //   return true
-  // }
 }
-
 
 // *** Sum of odd cubed numbers - 7 kyu
 /*
