@@ -4,6 +4,31 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Sort by Last Char - 7 kyu
+/*
+Given a string of words (x), you need to return an array of the words, sorted alphabetically by the final character in each.
+
+If two words have the same last letter, the returned array should show them in the order they appeared in the given string.
+
+All inputs will be valid.
+
+Examples:
+sortByLastChar('man i need a taxi up to ubud') => ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']
+
+sortByLastChar('what time are we climbing up the volcano') => ['time', 'are', 'we', 'the', 'climbing', 'volcano', 'up', 'what']
+
+
+*/
+function sortByLastChar(str) {  
+  // ** using split, sort, and charCodeAt (submitted)
+  // split str into an array
+  // sort array with charCodeAt, targetign last char of each string
+  return str.split(' ').sort((a,b) => a.charCodeAt(a.length - 1) - b.charCodeAt(b.length -1));
+
+  // using split, sort, and slice with localeCompare
+  // return str.split(' ').sort((a, b) => a.slice(-1).localeCompare(b.slice(-1)))
+}
+
 // *** Minimum Steps - 7 kyu
 /*
 Given an array of N integers, you have to find how many times you have to add up the smallest numbers in the array until their Sum becomes greater or equal to K.
@@ -16,24 +41,8 @@ Notes:
 
 Input >> Output Examples
 minimumSteps([1, 10, 12, 9, 2, 3], 6)  ==>  return (2)
-Explanation:
-We add two smallest elements (1 + 2), their sum is 3 .
-Then we add the next smallest number to it (3 + 3) , so the sum becomes 6 .
-Now the result is greater or equal to 6 , Hence the output is (2) i.e (2) operations are required to do this .
-
 minimumSteps([8 , 9, 4, 2], 23)  ==> return (3)
-Explanation:
-We add two smallest elements (4 + 2), their sum is 6 .
-Then we add the next smallest number to it (6 + 8) , so the sum becomes 14 .
-Now we add the next smallest number (14 + 9) , so the sum becomes 23 .
-Now the result is greater or equal to 23 , Hence the output is (3) i.e (3) operations are required to do this .
-
 minimumSteps([19,98,69,28,75,45,17,98,67], 464)  ==>  return (8)
-Explanation:
-We add two smallest elements (19 + 17), their sum is 36 .
-Then we add the next smallest number to it (36 + 28) , so the sum becomes 64 .
-We need to keep doing this until the sum becomes greater or equal to K (464 in this case), which will require 8 Steps .
-
 */
 function minimumSteps(numbers, value) {
   // ** with sort and a for...of loop (submitted)
