@@ -4,6 +4,44 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Help the fruit guy - 7 kyu
+/*
+Your task is to implement a method that accepts an array of strings containing fruits should returns an array of strings where all the rotten fruits are replaced by good ones.
+
+Example:
+removeRotten(["apple","rottenBanana","apple"]) => ["apple","banana","apple"]
+removeRotten(["apple","banana","apple", "orange"])
+Notes
+- If the array is null/nil/None or empty you should return empty array ([]).
+- The rotten fruit name will be in this camelcase (rottenFruit).
+- The returned array should be in lowercase.
+*/
+function removeRotten(bagOfFruits) {
+  // ** with forEach, String.prototype.includes, push, slice, and toLowerCase (submitted solution)
+  // if (bagOfFruits === null || bagOfFruits === undefined) return [];
+  // const freshFruit = [];
+  // bagOfFruits.forEach((fruit) => {
+  //   if (fruit.includes('rotten')) {
+  //     freshFruit.push(fruit.slice(6).toLowerCase());
+  //   } else {
+  //     freshFruit.push(fruit)
+  //   }
+
+  // })
+  // return freshFruit;
+
+  // with map and replace and a ternary
+  // return bagOfFruits ? bagOfFruits.map(fruit => fruit.replace('rotten', '').toLowerCase()) : [];
+
+  // longer version of above solution
+  if (!bagOfFruits) { return []; };
+
+  return bagOfFruits.map(fruit => {
+    return fruit.replace('rotten', '').toLowerCase();
+  });
+
+}
+
 // *** Simple consecutive pairs - 7 kyu
 /*
 In this Kata your task will be to return the count of pairs that have consecutive numbers as follows:
@@ -15,13 +53,6 @@ The pairs are selected as follows [(1,2),(5,8),(-4,-3),(7,6),5]
 --the third pair is (-4,-3), consecutive. Count = 2
 --the fourth pair is (7,6), also consecutive. Count = 3. 
 --the last digit has no pair, so we ignore.
-
-More Example outputs:
-pairs([21, 20, 22, 40, 39, -56, 30, -55, 95, 94]) => 2
-pairs([81, 44, 80, 26, 12, 27, -34, 37, -35]) => 0
-pairs([-55, -56, -7, -6, 56, 55, 63, 62]) => 4
-pairs([73, 72, 8, 9, 73, 72]) => 3
-
 */
 function pairs(arr) {
   // ** with a for loop, push and slice to create pairs of nums (submitted)
