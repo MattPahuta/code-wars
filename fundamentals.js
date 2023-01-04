@@ -1080,7 +1080,7 @@ function arrayDiff(a,b) {
 
 }
 
-// *** Transform to Prime - 6th kyu
+// *** Transform to Prime - 6 kyu
 /*
 Task :
 Given a List [] of n integers , find minimum number to be inserted in a list, so that sum of all elements of list should equal the closest prime number .
