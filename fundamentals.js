@@ -4,6 +4,50 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Bingo (or not) - 7 kyu
+/*
+For this game of BINGO, you will receive a single array of 10 numbers from 1 to 26 as an input. Duplicate numbers within the array are possible.
+
+Each number corresponds to their alphabetical order letter (e.g. 1 = A. 2 = B, etc). Write a function where you will win the game if your numbers can spell "BINGO". They do not need to be in the right order in the input array. Otherwise you will lose. Your outputs should be "WIN" or "LOSE" respectively.
+
+Examples:
+bingo([1,2,3,4,5,6,7,8,9,10]) => "LOSE"
+bingo([21,13,2,7,5,14,7,15,9,10]) => "WIN"
+*/
+function bingo(arr) {
+  // accept an array of numbers
+  // convert each num to corresponding uppercase letter
+  // check if resulting letters include all of 'BINGO' => return 'WIN' or else return 'LOSE'
+  // ** using supplied alpha order codes:
+  return [2,7,9,14,15].every(el => arr.includes(el)) ? 'WIN' : 'LOSE';
+
+  // ** with a boolean, forEach, and indexOf
+  // let bingo = true;
+  // [2,7,9,14,15].forEach(el => {
+  //   if (arr.indexOf(el) === -1) bingo = false;
+  // })
+  // return bingo ? 'WIN' : 'LOSE';
+
+
+  // ** with exlicit testing arrays, using map, fromCharCode, apply, split, every, includes...
+  const bingoArr = ['B', 'I', 'N', 'G', 'O'];
+  // convert array num to appropriate char code
+  // 1 = 'A' (65) (num + 64 = char code)
+  // 2 = 'B' (66)
+  // 3 = 'C' (67)
+  const charCodes = arr.map(num => {
+    return num + 64;
+  })
+  // convert charCodes to string chars
+  const charsArr = String.fromCharCode.apply(null, charCodes).split('')
+  // check if stringChars array includes all elements from bingoArr
+  return bingoArr.every(el => charsArr.includes(el)) ? 'WIN' : 'LOSE'
+
+
+
+}
+
+
 // *** Highest Scoring Word - 6 kyu
 /*
 Given a string of words, you need to find the highest scoring word.
@@ -333,7 +377,7 @@ Once you have counted all of your mini wins, compare that number to the other in
 
 All inputs will be in the correct format. Strings on tickets are not always the same length.
 */
-function bingo(ticket, win) {
+function lottoTicket(ticket, win) {
   let miniWins = 0;
 
   // ** with forEach, includes, String, and fromCharCode (submitted)
