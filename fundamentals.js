@@ -4,27 +4,42 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
-
-// *** JavaScript class-like objects - 7 kyu
+// *** Who likes it? - 6 kyu
 /*
-For this exercise you should create a JavaScript class like object called "Animal" that takes in "name" and "type" arguments. It should have a toString method that returns a human readable string indicating the argument information passed in. It should also allow the name property to be set.
+Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
 
-The following is an example of how the final code would be used and what the expected return values should be:
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 
-var dog = new Animal('Max', 'dog');
-dog.toString(); // should return 'Max is a dog'
-dog.type; // should == 'dog'
-dog.name; // should == 'Max'
-dog.name = 'Lassie'; // should set name to 'Lassie'
+Note: For 4 or more names, the number in "and 2 others" simply increases.
 */
-class Animal {
-  constructor(name, type) {
-    this.name = name;
-    this.type = type;
+function likes(names) {
+
+  // with a switch statement
+  switch(names.length) {
+    case 0: return 'no one likes this'; break;
+    case 1: return names[0] + ' likes this'; break;
+    case 2: return names[0] + ' and ' + names[1] + ' like this'; break;
+    case 3: return names[0] + ', ' + names[1] + ' and ' + names[2] + ' like this'; break;
+    default: return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
   }
-  toString() {
-    return `${this.name} is a ${this.type}`
+
+  // ** simply with conditionals and template strings
+  if (names.length === 0) {
+    return 'no one likes this';
+  } else if (names.length === 1) {
+    return `${names[0]} likes this`;
+  } else if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  } else if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  } else {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
+
 }
 
 
