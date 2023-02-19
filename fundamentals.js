@@ -5,8 +5,6 @@
 // ************************************************* //
 
 
-
-
 // *** Sum a list but ignore any duplicates - 7 kyu
 /*
 Please write a function that sums a list, but ignores any duplicate items in the list.
@@ -4058,25 +4056,7 @@ testEven(0.5); // => false
 testEven(1); // => false
 testEven(2); // => true
 
-// *** Reverse words - 7 kyu
-/*
-Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
-Examples
-"This is an example!" ==> "sihT si na !elpmaxe"
-"double  spaces"      ==> "elbuod  secaps"
 
-  return str.split(' ').map(word => {
-    return word.split('').reverse()
-  }
-
-*/
-function reverseWords(str) {
-  // split the str into an array of strings
-  // map over the array of strings
-  // split each letter into an array, reverse it, then join back into a string
-  // join the array of reversed strings back into a single string
-  return str.split(' ').map(word => word.split('').reverse().join('')).join(' ')
-}
 
 // *** What is between? - 8 kyu
 /*
