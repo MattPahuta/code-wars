@@ -9,8 +9,48 @@
 Please write a function that sums a list, but ignores any duplicate items in the list.
 
 For instance, for the list [3, 4, 3, 6] , the function should return 10.
+
+More examples: 
+sumNoDuplicates([1, 1, 2, 3]) => 5
+sumNoDuplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]) => 21
+sumNoDuplicates([1, 9, 9, 5, 7, 7, 6, 1, 5, 6]) => 0
 */
 function sumNoDuplicates(numList) {
+  // take in an array of numbers
+  // find numbers that are duplicated within the array
+  // remove the numbers that are duplicated 
+  // sum the remaining nums in the array
+
+  const resultNums = numList.filter(num => {
+    // if the first index of the num === the last index, it's unique in the array
+    return numList.indexOf(num) === numList.lastIndexOf(num)
+  })
+  // use reduce method to sum the unqiue nums array 
+  return resultNums.reduce((a,b) => a + b, 0);
+
+  // can shorten to this
+  // return numList.filter(num => numList.indexOf(num) === numList.lastIndexOf(num))
+  //   .reduce((a,b) => a + b, 0);
+
+
+  // also, can use this to get unique nums. I find above method clearer to understand
+  const uniqueNums = numList.filter((num, idx) => {
+    return numList.indexOf(num) === idx && numList.lastIndexOf(num) === idx;
+  })
+
+  // with a for loop and includes 
+  const noDups = [];
+  const dups = [];
+
+  for (let i = 0; i < numList.length; i++) {
+    if (!noDups.includes(numList[i])) {
+      noDups.push(numList[i]);
+    } else {
+      dups.push(numList[i]);
+    }
+  }
+
+  return noDups.filter(num => !dups.includes(num)).reduce((a,b) => a + b, 0)
 
 }
 
