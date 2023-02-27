@@ -5,6 +5,8 @@
 // ************************************************* //
 
 
+
+
 // *** Sum a list but ignore any duplicates - 7 kyu
 /*
 Please write a function that sums a list, but ignores any duplicate items in the list.
@@ -14,7 +16,7 @@ For instance, for the list [3, 4, 3, 6] , the function should return 10.
 More examples: 
 sumNoDuplicates([1, 1, 2, 3]) => 5
 sumNoDuplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]) => 21
-sumNoDuplicates([1, 9, 9, 5, 7, 7, 6, 1, 5, 6]) => 0
+sumNoDuplicates([1, 9, 9, 5, 7, 7, 6, 1, 5, 6]) => 0 
 */
 function sumNoDuplicates(numList) {
   // take in an array of numbers
