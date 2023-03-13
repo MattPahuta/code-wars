@@ -4,6 +4,11 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+
+
+
+
+
 // *** Coding Meetup #16 - Ask for missing details - 6 kyu
 /*
 You will be given an array of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
