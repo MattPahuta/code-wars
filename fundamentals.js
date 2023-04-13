@@ -6,7 +6,6 @@
 
 
 
-
 // *** Coding Meetup #7 - Find the most senior developer - 6 kyu
 /*
 You will be given a sequence of objects representing data about developers who have signed up to attend the next coding meetup that you are organising.
