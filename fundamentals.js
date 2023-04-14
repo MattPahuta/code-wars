@@ -7,6 +7,44 @@
 
 
 
+// *** Array Array Array - 7th kyu
+/*
+You are given an initial 2-value array (x). You will use this to calculate a score.
+
+If both values in (x) are numbers, the score is the sum of the two. If only one is a number, the score is that number. If neither is a number, return 'Void!'.
+
+Once you have your score, you must return an array of arrays. Each sub array will be the same as (x) and the number of sub arrays should be equal to the score.
+
+For example:
+
+if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
+*/
+function explode(x) {
+  const valOne = x[0];
+  const valTwo = x[1];
+  const resultArray = [];
+  let score = 0;
+
+  // if both elements are numbers
+  if (typeof valOne === 'number' && typeof valTwo === 'number') {
+    score = valOne + valTwo;
+  // if only one array element is a number?
+  } else if (typeof valOne === 'number') {
+    score = valOne;
+  } else if (typeof valTwo === 'number') {
+    score = valTwo;
+  } else {
+    return 'Void!';
+  }
+
+  for (let i = 0; i < score; i++) {
+    resultArray.push(x)
+  }
+
+
+  return resultArray;
+
+}
 
 
 
