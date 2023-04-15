@@ -7,7 +7,17 @@ uefaEuro2016(['Belgium', 'Italy'],[0, 2]) // "At match Belgium - Italy, Italy wo
 uefaEuro2016(['Portugal', 'Iceland'],[1, 1]) // "At match Portugal - Iceland, teams played draw."
 */
 function uefaEuro2016(teams, scores) {
-  // accept an array of two teams and an array of two scores
+  // with destructure and ternary
+  const [team1, team2] = teams;
+  const [score1, score2] = scores;
+  const winner = score1 > score2 ? team1 : team2;
+
+  return score1 === score2 
+    ? `At match ${team1} - ${team2}, teams played draw.`
+    : `At match ${team1} - ${team2}, ${winner} won!`
+
+
+  // with a simple if/else
   if (scores[0] === scores[1]) {
     return `At match ${teams[0]} - ${teams[1]}, teams played draw.`;
   } else if (scores[0] > scores[1]) {
