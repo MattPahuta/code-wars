@@ -5,7 +5,43 @@
 // ************************************************* //
 
 
+// *** Mexican Wave - 6 kyu
+/*
 
+Task
+In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up. 
+
+Rules
+ 1.  The input string will always be lower case but maybe empty.
+ 2.  If the character in the string is whitespace then pass over it as if it was an empty seat
+
+Example
+wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+*/
+function wave(str) {
+
+  // with spread, map, slice, toUppercase, and filter
+  return [...str].map((el, i) => {
+    // for each el in the str array, slice beginning of str up to i
+      // concat with the el toUpperCase and str sliced from current index + 1
+    return str.slice(0,i) + el.toUpperCase() + str.slice(i + 1)
+  }).filter(x => x !== str)
+
+
+  // with a for loop, split, toUpperCase, push, and join
+  const waveArr = []; // array to hold result
+
+  for (let i = 0; i < str.length; i++) {
+    let strArr = str.split(''); // split str into array, assign to variable
+    if (strArr[i] !== ' ') { // check for empty char in strArr
+      strArr[i] = strArr[i].toUpperCase(); // change the current index of strArr to uppdercase
+      waveArr.push(strArr.join('')) // push the joined, updated strArr to the waveArr
+    }
+  }
+  return waveArr;
+
+
+}
 
 
 
@@ -32,18 +68,12 @@ var list1 = [
   { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript' }
 ];
 your function should return true as there is at least one developer from each age group.
-
 Notes:
-
 The input array will always be valid and formatted as in the example above.
 Age is represented by a number which can be any positive integer up to 199.
 */
 
 function isAgeDiverse(list) {
-  // accept an array of of objects
-  // extract the ages from the objects 
-  // setup a key - array/object? 
-  // 13 - 19, 20 - 29, 30 - 39, 40 - 49, 50 - 59, 60 - 69, 70 - 79, 80 - 89, 90 - 99, >= 100
   // with map and some
   const ageReps = list.map(dev => dev.age)
     if (
@@ -62,68 +92,8 @@ function isAgeDiverse(list) {
     } else {
       return false;
     }
-  
-
-    // with for loop and chained conditionals, placeholder variables
-    let teens = ''
-    let twenties = ''
-    let thirties = ''
-    let fourties = ''
-    let fifties = ''
-    let sixties = ''
-    let seventies = ''
-    let eighties = ''
-    let nineties = ''
-    let hundies = ''
-        
-    
-    for (let i = 0; i < list.length; i ++) {
-      let age = list[i].age
-      if (age >= 10 && age < 20) {
-        teens += '1'
-      }
-      if (age >= 20 && age < 30) {
-        twenties += '1'
-      }
-      if (age >= 30 && age < 40) {
-        thirties += '1'
-      }
-      if (age >= 40 && age < 50) {
-        fourties += '1'
-      }
-      if (age >= 50 && age < 60) {
-        fifties += '1'
-      }
-      if (age >= 60 && age < 70) {
-        sixties += '1'
-      }
-      if (age >= 70 && age < 80) {
-        seventies += '1'
-      }
-      if (age >= 80 && age < 90) {
-        eighties += '1'
-      }
-      if (age >= 90 && age < 100) {
-        nineties += '1'
-      }
-      if (age > 100) {
-      console.log('hitting hundy', age)
-        hundies += '1'
-      }
-    }
-    
-    if (teens && twenties && thirties && fourties && fifties && sixties  && seventies && eighties && nineties && hundies) {
-      return true
-    } else {
-      return false
-    }
-
 
 }
-
-
-
-
 
 
 // *** Find min and max - 7 kyu
