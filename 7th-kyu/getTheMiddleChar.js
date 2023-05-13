@@ -10,7 +10,7 @@
   Kata.getMiddle("A") should return "A"
 */
 
-function getMiddle(str) {
+function getMiddle(s) {
   // let postion;
   // let length; 
   // if (str.length % 2 === 1) { // if the string has an even length;
@@ -22,6 +22,13 @@ function getMiddle(str) {
   // }
   // return str.substring(postion, postion + length)
 
-  // A more concise, moden method
+  // *** with charAt, Math.floor, slice
+  let middle = s.length / 2;
+
+  return (s.length % 2) // length of string evalutes to false (zero)
+    ? s.charAt(Math.floor(middle)) // for odd length strings
+    : s.slice(middle - 1, middle + 1) // for even length strings
+
+  // with substring, Math.ceil, Math.floor
   return s.substring(Math.ceil(s.length / 2) - 1, Math.floor(s.length /2 ) + 1)
 }
