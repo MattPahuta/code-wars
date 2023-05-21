@@ -6,6 +6,50 @@
 
 
 
+
+
+
+// *** Largest 5 digit number in a series - 7kyu
+/*
+In the following 6 digit number:
+
+283910
+91 is the greatest sequence of 2 consecutive digits.
+
+In the following 10 digit number:
+
+1234567890
+67890 is the greatest sequence of 5 consecutive digits.
+
+Complete the solution so that it returns the greatest sequence of five consecutive digits found within the number given. The number will be passed in as a string of only digits. It should return a five digit integer. The number passed may be as large as 1000 digits.
+
+Adapted from ProjectEuler.net
+*/
+function fiveDigitsSum(digits) {
+  // convert digits string to an array of numbers
+  const digitArr = digits.split('').map(Number);
+  // set initial largest sum 
+  let highSum;
+  highSum = digitArr.slice(0, 5).reduce((a, b) => a + b, 0);
+  let counter = 1;
+  for (let digit of digits) {
+    if (highSum < digitArr.slice(counter, 5).reduce((a, b) => a + b, 0)) {
+      highSum = digitArr.slice(counter, 5).reduce((a, b) => a + b, 0)
+    }
+    counter += 1;
+  }
+
+  return highSum;
+
+  // loop through array and find the largest 
+
+
+
+  return digitArr;
+
+
+}
+
 // *** Pair of Gloves - 6 kyu
 /*
 Winter is coming, you must prepare your ski holidays. The objective of this kata is to determine the number of pair of gloves you can constitute from the gloves you have in your drawer.
