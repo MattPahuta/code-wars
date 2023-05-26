@@ -5,8 +5,6 @@
 // ************************************************* //
 
 
-
-
 // *** Array Array Array - 7th kyu
 /*
 You are given an initial 2-value array (x). You will use this to calculate a score.
