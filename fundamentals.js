@@ -4,6 +4,28 @@
 // *** All challenges completed using JavaScript *** //
 // ************************************************* //
 
+// *** Evens times last - 7th kyu
+/*
+Given a sequence of integers, return the sum of all the integers that have an even index (odd index in COBOL), multiplied by the integer at the last index.
+
+Indices in sequence start from 0.
+
+If the sequence is empty, you should return 0.
+*/
+function evenLast(numbers) {
+  //with filter, reduce, short circuting
+  return numbers.filter((num, i) => i % 2 === 0).reduce((a,b) => a + b, 0) * numbers[numbers.length - 1] || 0;
+
+  // with forEach
+  if (numbers.length < 1) return 0;
+  let evensSum = 0;
+  numbers.forEach((num, i) => {
+    if (i % 2 === 0) evensSum += num;
+  })
+  return evensSum * numbers[numbers.length - 1]
+
+}
+
 
 // *** Between Extremes - 7th kyu 
 /*
