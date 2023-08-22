@@ -7,6 +7,112 @@
 
 
 
+// *** Codecademy Intermediate JS challenge - groceries()
+/*
+Write a function groceries() that takes an array of object literals of grocery items. 
+
+The function should return a string with each item separated by a comma except the last two items should be separated by the word 'and'. 
+
+Make sure spaces (' ') are inserted where they are appropriate.
+
+Examples:
+
+groceries( [{item: 'Carrots'}, {item: 'Hummus'}, {item: 'Pesto'}, {item: 'Rigatoni'}] );
+// returns 'Carrots, Hummus, Pesto and Rigatoni'
+
+groceries( [{item: 'Bread'}, {item: 'Butter'}] );
+// returns 'Bread and Butter'
+
+groceries( [{item: 'Cheese Balls'}] );
+// returns 'Cheese Balls'
+*/
+function groceries(arrayOfObjects) {
+  const groceryItems = arrayOfObjects.map(obj => obj.item);
+  let listString = ''
+  if (groceryItems.length === 1) return listString += groceryItems[0];
+  if (groceryItems.length === 2) return groceryItems.join(' and ');
+
+  console.log(groceryItems)
+  const firstItems = groceryItems.slice(0, groceryItems.length -1).join(', ')
+  const lastItem =  groceryItems.slice(groceryItems.length -1).join(' and ')
+
+  return firstItems + ' and ' + lastItem;
+
+}
+
+// *** Codecademy Intermediate JS challenge - subLength()
+/*
+Write a function subLength() that takes 2 parameters, a string and a single character. 
+
+The function should search the string for the two occurrences of the character and return the length between them including the 2 characters. 
+
+If there are less than 2 or more than 2 occurrences of the character the function should return 0.
+
+Examples:
+
+subLength('Saturday', 'a'); // returns 6
+subLength('summer', 'm'); // returns 2
+subLength('digitize', 'i'); // returns 0
+subLength('cheesecake', 'k'); // returns 0
+*/
+
+function subLength(string, char) {
+  // if char occurs in string < 2 or > 2 - return 0;
+  // get first occurrence index and second occurrence index
+  // use .slice(first occurrence index, second occurrence index + 1)
+  // return length of sliced string
+  const charIndices = [];
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === char) charIndices.push(i);
+  }
+  
+  if (charIndices.length < 2 || charIndices.length > 2) {
+    return 0;
+    console.log('trip wire')
+  }
+
+  return string.slice(charIndices[0], charIndices[1] + 1).length
+}
+
+
+
+// *** Codecademy Intermediate JS challenge - howOld()
+/*
+
+Write a function, howOld(), that has two number parameters, age and year, and returns how old someone who is currently that age was (or will be) during that year. Handle three different cases:
+
+If the year is in the future, you should return a string in the following format:
+'You will be [calculated age] in the year [year passed in]'
+ 
+If the year is before they were born, you should return a string in the following format:
+'The year [year passed in] was [calculated number of years] years before you were born'
+ 
+If the year is in the past but not before the person was born, you should return a string in the following format:
+'You were [calculated age] in the year [year passed in]'
+*/
+function howOld(age, year) {
+  const currentDate = new Date(); 
+  const currentYear = currentDate.getFullYear();
+  const yearDifference = year - currentYear;
+  const newAge = age + yearDifference;
+  const birthYear = currentYear - age;
+
+  if (newAge > age) { // good
+    return `You will be ${newAge} in the year ${year}`;
+  } else if (newAge < 0) {
+    return `The year ${year} was ${birthYear - year} years before you were born`;
+  } else {
+    return `You were ${newAge} in the year ${year}`;
+  }
+
+  /*
+  If the newAge is less than 0, this means the year provided was before the person was born. 
+
+  If the newAge is greater than their current age, this means the year passed in is in the future. 
+
+  Otherwise, we know the year provided was in the past but not before they were born.
+  */
+}
 
 // *** Alphabet war - airstrike - letters massacre - 6 kyu
 /*
