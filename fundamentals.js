@@ -7,6 +7,7 @@
 
 
 
+
 function encrypt(plainText, shiftNum) {
 
   const plainTextArray = plainText.toUpperCase().split('');
