@@ -8,6 +8,47 @@
 
 
 
+function encrypt(plainText, shiftNum) {
+
+  const plainTextArray = plainText.toUpperCase().split('');
+
+  const encryptArray = plainTextArray.map(char => {
+    let charCode = char.charCodeAt(0);
+    if (charCode <= 90 && charCode >= 65) {
+      charCode += shiftNum;
+      if (charCode > 90) {
+        charCode -= 26;
+      }
+      return charCode
+    } else {
+      return charCode
+    }
+  }) // results in array of updated codes
+
+  return encryptArray.map(code => String.fromCharCode(code)).join(''); // => upperCase encrypted string
+
+}
+
+function decrypt(encryptString, shiftNum) {
+  const encryptStringArray = encryptString.toLowerCase().split('');
+
+  const decryptArray = encryptStringArray.map(char => {
+    let charCode = char.charCodeAt(0);
+    if (charCode <= 122 && charCode >= 97) {
+      charCode -= shiftNum;
+      if (charCode < 97) {
+        charCode += 26;
+      }
+      return charCode
+    }
+    return charCode;
+  })
+
+  return decryptArray.map(code => String.fromCharCode(code)).join(''); // return decrypted string;
+}
+ 
+
+
 // *** zipWith - 6 kyu
 /*
 Task
