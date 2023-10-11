@@ -47,6 +47,7 @@ function baublesOnTree(baubles, branches) {
 
 
 
+
 function encrypt(plainText, shiftNum) {
 
   const plainTextArray = plainText.toUpperCase().split('');
